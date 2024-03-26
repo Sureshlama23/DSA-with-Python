@@ -85,22 +85,19 @@ class CDLL:
         self.start.prev = self.start.prev.prev
   def delete_item(self,data):
     if not self.is_empty():
-      if self.start.next == self.start:
-        if self.start.item == data:
-          self.start = None
-      else:
         temp = self.start
         if temp.item == data:
           self.delete_first()
         else:
-          while temp != self.start.prev:
+          temp = temp.next
+          while temp != self.start:
             if temp.item == data:
               temp.prev.next = temp.next
               temp.next.prev = temp.prev
               break
-            if temp == self.start.prev:
-              if temp.item == data:
-                self.delete_last()       
+            if temp == self.start:
+              if self.start.prev.item == data:
+                self.delete_last()
                 break       
             temp = temp.next
   def print_list(self):
@@ -119,7 +116,7 @@ class CDLLIterator:
     self.start = start
     self.check = False
   
-  def __iter__(self,start):
+  def __iter__(self):
     return self
   
   def __next__(self):
@@ -141,5 +138,5 @@ cdll.insert_at_last(10)
 cdll.insert_after(cdll.search(20),4)
 cdll.print_list()
 print()
-cdll.delete_item(10)
+cdll.delete_item(20)
 cdll.print_list()
