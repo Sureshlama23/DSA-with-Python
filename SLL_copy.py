@@ -96,6 +96,7 @@ class SLLIterator:
 
 
 #driver code
+'''
 mylist = SLL()
 mylist.insert_start(10)
 mylist.insert_last(20)
@@ -108,4 +109,4 @@ mylist.print_list()
 print()
 for l in mylist:
   print(l,end= ' ')
-    
+'''
