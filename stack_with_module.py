@@ -12,10 +12,11 @@ class stack:
         self.top.insert_start(data)
     
     def pop(self):
-        self.item_count -=1
-        data = self.top.start.item
-        self.top.delete_first()
-        return data
+        if not self.is_empty():
+            self.item_count -=1
+            data = self.top.start.item
+            self.top.delete_first()
+            return data
     
     def peek(self):
         if not self.is_empty():
@@ -34,3 +35,4 @@ print()
 print('Stack remove item is: ',st1.pop())
 print('Top stack item is:- ',st1.peek())
 print('stack size is:- ',st1.size())
+st1.is_empty()

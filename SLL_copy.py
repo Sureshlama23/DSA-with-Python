@@ -96,6 +96,8 @@ class SLLIterator:
 
 
 #driver code
+mylist = SLL()
+
 '''
 mylist = SLL()
 mylist.insert_start(10)

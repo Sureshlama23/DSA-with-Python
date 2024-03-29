@@ -2,7 +2,9 @@
 import SLL_copy
 
 class stack(SLL_copy.SLL):
-    item_count = 0
+    def __init__(self):
+        super().__init__()
+        self.item_count = 0
     def is_empty(self):
         return super().is_empty()
     def push(self,data):
@@ -10,13 +12,19 @@ class stack(SLL_copy.SLL):
         self.insert_start(data)
 
     def peek(self):
-        return self.start.item
+        if not self.is_empty():
+            return self.start.item
+        else:
+            raise IndexError('Stack is empty')
     
     def pop(self):
-        data = self.start.item
-        self.item_count -= 1
-        self.delete_first()
-        return data
+        if not self.is_empty():    
+            data = self.start.item
+            self.item_count -= 1
+            self.delete_first()
+            return data
+        else:
+            raise IndexError('Stack is empty')
     def size(self):
         return self.item_count
     def delete_last(self):
@@ -51,9 +59,4 @@ print('Top value is: ',s1.peek())
 print('Stack size is:',s1.size())
 # s1.delete_last()
 
-s1.delete_item(s1.search(10),20)
-
-
-    
-
-    
+# s1.delete_item(s1.search(10),20)
