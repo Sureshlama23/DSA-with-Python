@@ -10,7 +10,7 @@ class stack:
     def push(self,data):
         self.item_count +=1
         self.top.insert_start(data)
-    
+        
     def pop(self):
         if not self.is_empty():
             self.item_count -=1
