@@ -20,28 +20,28 @@ class DLL:
     self.start.prev = self.start
   def insert_last(self,data):
     # own code ----------------->>>>>>>>>>
-    # n = Node(None,data)
-    # if self.start is None:
-    #   self.start = n
-    # elif self.start.next is None:
-    #   self.start.next = n
-    #   n.prev = self.start
-    # else:
-    #   temp = self.start
-    #   while temp.next is not None:
-    #     temp = temp.next
-    #   temp.next = n
-    #   n.prev =temp
+    n = Node(None,data)
+    if self.start is None:
+      self.start = n
+    elif self.start.next is None:
+      self.start.next = n
+      n.prev = self.start
+    else:
+      temp = self.start
+      while temp.next is not None:
+        temp = temp.next
+      temp.next = n
+      n.prev =temp
 
     # teacher code
-    temp = self.start
-    while temp.next != None:
-      temp = temp.next
-    n = Node(temp,data,None)
-    if temp == None:
-      self.start = n
-    else:
-      temp.next = n 
+    # temp = self.start
+    # while temp.next != None:
+    #   temp = temp.next
+    # n = Node(temp,data,None)
+    # if temp == None:
+    #   self.start = n
+    # else:
+    #   temp.next = n 
 
   def search(self,data):
     temp = self.start
