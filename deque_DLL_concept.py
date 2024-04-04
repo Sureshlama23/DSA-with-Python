@@ -1,7 +1,7 @@
 ''' Deque Data Structure with DLL() concept'''
 
 class Node:
-    def __init__(self,prev=None,item=None,next=None):
+    def __init__(self,item=None,prev=None,next=None):
         self.prev = prev
         self.item = item
         self.next = next
@@ -14,28 +14,20 @@ class Deque:
     def is_empty(self):
         return self.front == None
     def insert_front(self,data):
-        n = Node(None,data,None)
+        n = Node(data,None,self.front)
         if self.front == None:
-            self.front = n
             self.rear = n
-        elif self.front == self.rear:
-            n.next = self.front
-            self.front.prev = n
-            self.front = n
         else:
-            n.next = self.front
             self.front.prev = n
-            self.front = n
+        self.front = n
         self.item_count +=1
     def insert_rear(self,data):
-        n = Node(None,data,None)
+        n = Node(data,self.rear,None)
         if self.front == None:
             self.front = n
-            self.rear = n            
         else:
-            n.prev = self.rear
             self.rear.next = n
-            self.rear = n
+        self.rear = n
         self.item_count +=1
     def get_front(self):
         if not self.is_empty():
@@ -56,6 +48,7 @@ class Deque:
             else:
                 data = self.front.item
                 self.front = self.front.next
+                self.front.prev = None
                 self.item_count -=1
                 return data
         else:
@@ -70,6 +63,7 @@ class Deque:
             else:
                 data = self.rear.item
                 self.rear = self.rear.prev
+                self.rear.next = None
             self.item_count -=1
             return data
         else:
