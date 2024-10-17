@@ -28,6 +28,6 @@ p.push('nabin',6)
 print(p.items)
 print('Queue items count is ',p.size())
 print()
-while not p.is_empty():
-    print(p.pop())
+# while not p.is_empty():
+#     print(p.pop())
 print('Queue items count is ',p.size())

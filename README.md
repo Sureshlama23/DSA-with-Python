@@ -1,2 +1,2 @@
-<h2>This a DSA wiht Python</h2>
+<h2>This is a DSA wiht Python</h2>
 Author - Suresh
